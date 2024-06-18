@@ -30,8 +30,24 @@ describe('Library', () => {
   it('throw an error when setting an invalid name', () => {
     expect(() => myLibrary.setName(123)).toThrow();
   });
+
   it('throw an error when setting an empty name', () => {
-    // TODO
+    expect(() => myLibrary.setName('')).toThrow();
+  });
+
+  it('return the total words of books', () => {
+    myLibrary.addBook('Estoicismo Cotidiano', 'Ryan Holiday', 365, 2000);
+    expect(myLibrary.totalWords()).toBe(2000);
+  });
+
+  it('return the total words of books', () => {
+    myLibrary.addBook('Diario para estoicos', 'Ryan Holiday', 365);
+    expect(myLibrary.totalWords()).toBe(0);
+  });
+
+  it('throw an error when setting an invalid words', () => {
+    expect(() => myLibrary.addBook('Diario para estoicos', 'Ryan Holiday', 478, '2982')).toThrow();
+    expect(() => myLibrary.addBook('Diario para estoicos', 'Ryan Holiday', 478, 'wfawdwd')).toThrow();
   });
 
 });
