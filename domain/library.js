@@ -4,8 +4,6 @@ class Library {
 
   #name;
   #inventory = [];
-  #totalWords;
-  #wordCount;
 
   constructor(name) {
     this.setName(name);
