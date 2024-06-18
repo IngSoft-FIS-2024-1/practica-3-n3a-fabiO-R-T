@@ -29,6 +29,7 @@ class Library {
   addBook(title, author, pages) {
     const newBook = new Book(title, author, pages);
     this.#inventory.push(newBook);
+    this.#totalWords += newBook.getWords();
   }
 
   getInventory() {
@@ -40,7 +41,7 @@ class Library {
   }
 
   totalWords() {
-    // TODO
+    return this.#totalWords;
   }
 }
 
